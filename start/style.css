@@ -39,3 +39,70 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+body {
+    display: flex;
+    height: 100vh;
+    margin: auto;
+}
+
+.calculator {
+  width: 300px;
+  height: 400px;
+  margin: auto;
+
+  border-radius: 8px;
+  box-shadow: 1px 1px 5px rgb(155, 155, 155);
+  
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.calculator span {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.calculator > span:not(.result) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator > span:not(:nth-child(n+16)):not(#equals) {
+    border-bottom: 2px solid #899dae;
+}
+
+.calculator > span:not(#equals):not(#divide):not(:first-child) {
+    border-right: 2px solid #899dae;
+}
+
+.result {
+  grid-column: span 4;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+
+  color: #ffffff;
+  font-size: 1.5rem;
+  background-color: #424c52;
+  border-radius: 8px 8px 0 0;
+}
+
+.calculator > span:nth-child(n+2):nth-child(-n+5) {
+    background-color: #d2dce3;
+}
+
+#equals {
+    grid-column: 4;
+    grid-row: 3 / 7;
+
+    background-color: #f77077;
+    border-radius: 0 0 8px 0;
+}
